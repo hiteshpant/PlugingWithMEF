@@ -1,0 +1,28 @@
+﻿<Window x:Class="ShapeParser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock   VerticalAlignment="Center"  Text="SelectedShape" />
+        <ComboBox VerticalContentAlignment="Center" Grid.Column="1" SelectedItem="{Binding SelectedShapeData}" 
+                      Height="40" ItemsSource="{Binding Shapes}" HorizontalAlignment="Left" Margin="0,22" Width="289">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Data.Name}"  />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ContentControl Grid.ColumnSpan="2" Grid.Row="1" Content="{Binding SelectedData}" />
+    </Grid>
+</Window>
